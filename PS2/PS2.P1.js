@@ -3,33 +3,37 @@ generator should return the series of fibonacci numbers starting from 0. The ser
 as
 F(0) = 0; F(1) = 1; F(n) = F(n-1) + F(n-2)
  */
-const getFibNumbers = (value) =>{
-       if(value == 0){
-           return 0;
-       }
-       if(value == 1){
-           return 1;
-       }
-       else{
-           return getFibNumbers(value-1) + getFibNumbers(value-2);
+function* getFibNumbers () {
+       let val1 = 0;
+       let val2 = 1;
+       let result = 0;
+       while(true){
+           result = val1 + val2;
+           val1 = val2;
+           val2 = result;
+           yield result;
        }
 }
+
 /*
 The second generator should use the first to obtain the next number in the sequence, rejecting
 it if it is odd and asking for the next. Once an even Fibonacci number is obtained, it is emitted.
 Use the generators to print out the first 6 even Fibonacci numbers.
  */
-const printEvenNumbers = (value) =>{
-    let counter = 0;
-    let position = 0;
-    while(counter != value) {
-        const x = getFibNumbers(position);
-        if (x % 2 == 0) {
-            counter = counter + 1;
-            console.log(x);
+function* getEvenFibNumbers(){
+    const fibgen = getFibNumbers();
+    while(true){
+        let val = fibgen.next().value;
+        if(val%2 == 0){
+            yield val;
         }
-        position++;
     }
 }
 
-printEvenNumbers(6);
+const getEvenFibs = getEvenFibNumbers();
+let counter =5;
+while(counter >= 0){
+    console.log(getEvenFibs.next().value);
+    counter--;
+}
+
