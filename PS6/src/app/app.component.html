@@ -11,8 +11,22 @@
   [(variable name)] -- two way binding-->
 
 
-<h2> Select a city: </h2>
+<h2> Enter a city: </h2>
+<!-- way one form
+<input type = "text" [(ngModel)]="selectedCity"> {{selectedCity}}
+-->
 
+<!-- way two form
+<label>City</label> <input type = "text" [formControl]="city"> {{city.value}}
+-->
+<!-- way three form
+<form [formGroup]="location" (ngSubmit)="getWeather()">
+  <input type="text" formControlName="city 2">
+  <button type ="submit">Get Weather</button>
+</form>
+-->
+
+<!--
 <div>
 
   <ul>
@@ -22,6 +36,7 @@
   </ul>
 
 </div>
+-->
 
 <!--
 <div *ngIf ="selectedCity">
@@ -34,8 +49,11 @@
 </div>
 -->
 
+<app-city-input (cityDataOut)="recieveCity($event)"></app-city-input>
+<!--
 <app-city-detail [selectedCity]="selectedCity"></app-city-detail>
-
+-->
+<app-city-detail [outputCity]="outputCity"></app-city-detail>
 
 
 

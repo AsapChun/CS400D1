@@ -1,0 +1,8 @@
+<form [formGroup]="location" (ngSubmit)="emitCity(this.location.controls['selectedCity'].value)">
+  <input type="text" formControlName="selectedCity" required>
+  <button type ="submit">Get Weather</button>
+</form>
+
+
+<!-- <app-city-detail [SelectedCity]="se"></app-city-detail> -->
+

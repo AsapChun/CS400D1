@@ -1,9 +1,29 @@
-<div *ngIf ="selectedCity">
-  <h3>Temperature for {{selectedCity.city}} </h3>
-  <input type="text" [(ngModel)]= "selectedCity.temperature">
-  <input type="text" [(ngModel)]= "'max: ' + selectedCity.maxTemp">
-  <input type="text" [(ngModel)]= "'min: ' + selectedCity.minTemp">
-  <input type="text" [(ngModel)]= "'Latitude: ' + selectedCity.latitude">
-  <input type="text" [(ngModel)]= "'Longitude: ' + selectedCity.longitude">
+<div *ngIf ="outputCity">
+  <h3>Click below to get 5 DAY TEMPERATURE forecast in {{outputCity}} </h3>
+  <button (click) = "getWeather()">Click here</button>
+  <br/>
+  <!-- The temperature in {{selectedCity.city}} is: {{weather}} degrees -->
+
+    <li *ngFor="let wx of weather">
+      temperature {{wx.main.temp}} degrees on {{wx.dt_txt}}
+    </li>
+
 </div>
+
+<!--
+<button (click) = "getNumbers()">Get Numbers</button>
+<br/>
+<button (click) = "startTimer()">Start Timer</button>
+<br/>
+Current Value: {{currentValue}}
+<br/>
+Time: {{time}}
+<br/>
+Errors: {{errorValue}}
+<br/>
+<br/>
+<br/>
+-->
+
+
 
