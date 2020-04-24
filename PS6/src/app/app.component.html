@@ -1,11 +1,18 @@
-<div>
+<div style="text-align: center">
   <h1>
     Welcome to {{title}}!
   </h1>
 </div>
 
-<h2>
-</h2>
+<!-- {{variableName}} -- interpolation, one way from model to view -->
+<!-- {eventName}} -- event coming from page to model
+  Example <button (click)= "function()definted in model"</button>
+  [localvariable] = "modelVariableName" -- iniit local variable in html from model
+  [(variable name)] -- two way binding-->
+
+
+<h2> Select a city: </h2>
+
 <div>
 
   <ul>
@@ -16,8 +23,8 @@
 
 </div>
 
+<!--
 <div *ngIf ="selectedCity">
-  <!-- display selected contact -->
   <h3>Temperature for {{selectedCity.city}} </h3>
   <input type="text" [(ngModel)]= "selectedCity.temperature">
   <input type="text" [(ngModel)]= "'max: ' + selectedCity.maxTemp">
@@ -25,6 +32,9 @@
   <input type="text" [(ngModel)]= "'Latitude: ' + selectedCity.latitude">
   <input type="text" [(ngModel)]= "'Longitude: ' + selectedCity.longitude">
 </div>
+-->
+
+<app-city-detail [selectedCity]="selectedCity"></app-city-detail>
 
 
 

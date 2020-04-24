@@ -15,4 +15,6 @@ export class AppComponent {
   selectCity(data: DATA) {
     this.selectedCity = data;
   }
+
 }
+

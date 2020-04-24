@@ -1,0 +1,9 @@
+<div *ngIf ="selectedCity">
+  <h3>Temperature for {{selectedCity.city}} </h3>
+  <input type="text" [(ngModel)]= "selectedCity.temperature">
+  <input type="text" [(ngModel)]= "'max: ' + selectedCity.maxTemp">
+  <input type="text" [(ngModel)]= "'min: ' + selectedCity.minTemp">
+  <input type="text" [(ngModel)]= "'Latitude: ' + selectedCity.latitude">
+  <input type="text" [(ngModel)]= "'Longitude: ' + selectedCity.longitude">
+</div>
+
